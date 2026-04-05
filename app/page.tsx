@@ -126,7 +126,7 @@ export default function Page() {
             variant="outline" 
             size="lg" 
             className="h-14 w-full rounded-2xl border-2 px-8 text-lg font-semibold transition-all hover:bg-secondary sm:w-auto"
-            onClick={() => router.push("/links/sophie")} // Preview link
+            onClick={() => router.push("/demo")} // Preview link with dummy data
           >
             둘러보기
           </Button>
