@@ -11,9 +11,9 @@ export default function LinksPage() {
       {/* Profile Header */}
       <div className="flex flex-col items-center mb-12 text-center">
         <div className="w-24 h-24 rounded-full bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 mb-6 shadow-xl ring-4 ring-white dark:ring-slate-900" />
-        <h1 className="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-2">My Links</h1>
+        <h1 className="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-2">나의 링크 목록</h1>
         <p className="text-slate-600 dark:text-slate-400 max-w-sm">
-          Welcome to my link collection. Feel free to explore my social media and projects.
+          저의 소셜 미디어와 프로젝트를 한곳에서 확인해 보세요.
         </p>
       </div>
 
@@ -34,7 +34,7 @@ export default function LinksPage() {
                   <div className="relative w-10 h-10 flex-shrink-0 bg-slate-100 dark:bg-slate-800 rounded-lg overflow-hidden flex items-center justify-center border border-slate-200 dark:border-slate-700 group-hover:border-indigo-400 transition-colors">
                     <img
                       src={link.faviconUrl}
-                      alt={`${link.title} icon`}
+                      alt={`${link.title} 아이콘`}
                       className="w-6 h-6 object-contain"
                     />
                   </div>
@@ -52,7 +52,7 @@ export default function LinksPage() {
 
       {/* Footer */}
       <footer className="mt-20 text-slate-400 text-sm font-medium tracking-wide">
-        MADE WITH <span className="text-indigo-500">MYLINK</span>
+        MYLINK로 제작됨
       </footer>
 
       {/* Background decoration */}
