@@ -62,11 +62,11 @@ export function LinkCard({ userId, link }: LinkCardProps) {
   };
 
   return (
-    <Card className="group relative overflow-hidden transition-all hover:shadow-md">
-      <CardContent className="flex items-center gap-4 p-4">
-        <div className="flex-shrink-0 flex items-center gap-2">
-          <GripVertical className="h-4 w-4 text-muted-foreground/30" />
-          <div className="h-10 w-10 rounded bg-muted flex items-center justify-center overflow-hidden border">
+    <Card className="group relative overflow-hidden transition-all hover:shadow-lg border-primary/10 bg-card/50 backdrop-blur-sm rounded-2xl">
+      <CardContent className="flex items-center gap-4 p-5">
+        <div className="flex-shrink-0 flex items-center gap-3">
+          <GripVertical className="h-5 w-5 text-muted-foreground/20 cursor-grab active:cursor-grabbing" />
+          <div className="h-12 w-12 rounded-xl bg-muted/50 flex items-center justify-center overflow-hidden border border-primary/5 shadow-inner group-hover:bg-primary/5 transition-colors duration-300">
             {link.faviconUrl ? (
               <img src={link.faviconUrl} alt="" className="h-6 w-6" />
             ) : (
@@ -75,40 +75,44 @@ export function LinkCard({ userId, link }: LinkCardProps) {
           </div>
         </div>
 
-        <div className="flex-grow min-w-0 space-y-1">
+        <div className="flex-grow min-w-0 space-y-1.5 pl-2">
           <InlineEditor
             value={link.title}
             onSave={(val) => updateLink("title", val)}
             placeholder="Link Title"
-            className="font-medium text-base p-0 hover:bg-transparent"
+            className="font-semibold text-lg p-0 hover:bg-transparent tracking-tight text-foreground/90"
           />
-          <InlineEditor
-            value={link.url}
-            onSave={(val) => updateLink("url", val)}
-            placeholder="URL (e.g., https://...)"
-            className="text-sm text-muted-foreground p-0 hover:bg-transparent truncate"
-          />
+          <div className="flex items-center gap-2">
+            <InlineEditor
+              value={link.url}
+              onSave={(val) => updateLink("url", val)}
+              placeholder="URL (e.g., https://...)"
+              className="text-sm text-muted-foreground/70 p-0 hover:bg-transparent truncate max-w-[200px]"
+            />
+          </div>
         </div>
 
-        <Dialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
-          <DialogTrigger asChild>
-            <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-destructive transition-colors">
-              <Trash2 className="h-4 w-4" />
-            </Button>
-          </DialogTrigger>
-          <DialogContent>
-            <DialogHeader>
-              <DialogTitle>정말 삭제하시겠습니까?</DialogTitle>
-              <DialogDescription>
-                이 링크를 삭제하면 복구할 수 없습니다.
-              </DialogDescription>
-            </DialogHeader>
-            <DialogFooter>
-              <Button variant="outline" onClick={() => setIsDeleteDialogOpen(false)}>취소</Button>
-              <Button variant="destructive" onClick={deleteLink}>삭제</Button>
-            </DialogFooter>
-          </DialogContent>
-        </Dialog>
+        <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <Dialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
+            <DialogTrigger asChild>
+              <Button variant="ghost" size="icon" className="h-10 w-10 text-muted-foreground hover:text-destructive hover:bg-destructive/10 rounded-xl transition-all">
+                <Trash2 className="h-5 w-5" />
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="rounded-3xl border-primary/20 glass">
+              <DialogHeader>
+                <DialogTitle>정말 삭제하시겠습니까?</DialogTitle>
+                <DialogDescription>
+                  이 링크를 삭제하면 복구할 수 없습니다. 다시 한 번 생각해보세요!
+                </DialogDescription>
+              </DialogHeader>
+              <DialogFooter className="gap-2 sm:gap-0">
+                <Button variant="outline" className="rounded-2xl" onClick={() => setIsDeleteDialogOpen(false)}>아니요, 유지할래요</Button>
+                <Button variant="destructive" className="rounded-2xl" onClick={deleteLink}>네, 삭제할게요</Button>
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>
+        </div>
       </CardContent>
     </Card>
   );

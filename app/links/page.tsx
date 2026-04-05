@@ -32,10 +32,13 @@ export default function LinksPage() {
               <Card className="overflow-hidden border-none shadow-md hover:shadow-xl transition-shadow bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm">
                 <CardContent className="p-4 flex items-center gap-4">
                   <div className="relative w-10 h-10 flex-shrink-0 bg-slate-100 dark:bg-slate-800 rounded-lg overflow-hidden flex items-center justify-center border border-slate-200 dark:border-slate-700 group-hover:border-indigo-400 transition-colors">
-                    <img
+                    <Image
                       src={link.faviconUrl}
                       alt={`${link.title} 아이콘`}
-                      className="w-6 h-6 object-contain"
+                      width={24}
+                      height={24}
+                      className="object-contain"
+                      unoptimized={true}
                     />
                   </div>
                   <div className="flex-grow min-w-0">

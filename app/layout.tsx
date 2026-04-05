@@ -1,15 +1,18 @@
-import { Geist, Geist_Mono } from "next/font/google"
+import { Outfit, Inter } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/sonner";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'})
+const outfit = Outfit({ 
+  subsets: ['latin'], 
+  variable: '--font-outfit' 
+})
 
-const fontMono = Geist_Mono({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-mono",
+  variable: "--font-inter",
 })
 
 export default function RootLayout({
@@ -21,7 +24,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, "font-sans", geist.variable)}
+      className={cn("antialiased", outfit.variable, inter.variable, "font-sans")}
     >
       <body>
         <ThemeProvider>
