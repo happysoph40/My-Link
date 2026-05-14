@@ -16,7 +16,7 @@ This project is a link-in-bio service that allows users to aggregate their socia
 
 *   **Framework**: Next.js (v16.1.7, App Router)
 *   **Language**: TypeScript
-*   **UI/UX**: shadcn/ui, Radix UI, Lucide React, Sonner (Toasts)
+*   **UI/UX**: Base UI (@base-ui/react), Lucide React, Sonner (Toasts)
 *   **Styling**: Tailwind CSS (v4)
 *   **Backend/Auth**: Firebase (Auth, Firestore)
 
@@ -39,13 +39,14 @@ This project is a link-in-bio service that allows users to aggregate their socia
 
 ## 📏 Development Rules & Conventions
 
-1.  **UI Components**: Use `shadcn/ui` as the primary design system.
+1.  **UI Components**: Use **Base UI (@base-ui/react)** as the primary design system. Tailored with Tailwind CSS for premium aesthetics.
 2.  **Editing Mode**: Use **Inline Editing** for all dashboard updates. Save on `Enter` or `Focus Out` without a separate save button.
 3.  **Database Structure**:
     *   `users` collection: User profiles (`uid`, `email`, `displayName`, `username`, `bio`)
     *   `users/{uid}/links` sub-collection: Individual links (`title`, `url`, `faviconUrl`, `order`)
 4.  **User Identity**: Upon signup, use the ID part of the Gmail address as the initial `displayName` (URL slug).
 5.  **Images**: No manual image uploads. Use the Google Favicon API for link icons.
+6.  **Documentation**: All plans, tasks, and walkthroughs must be written in **Korean** (한글).
 
 ## 🗄 Data Model (TypeScript)
 
